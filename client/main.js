@@ -12,11 +12,10 @@ let tree = h('div',
 let rootNode = createElement(tree);
 
 document.querySelector('.content')
-.appendChild(rootNode)
-.addEventListener('submit', add);
+    .appendChild(rootNode);
 
 function input () {
-    return h('form', [ 
+    return h('form', { onsubmit: add }, [ 
         h('input', { 
             type: 'text',
             className: 'list-item',
@@ -32,12 +31,16 @@ function input () {
 
 function add(e) {
     e.preventDefault();
-    let itemContents = document.querySelector('.list-item').value;
+    let form = e.target;
+    let itemContents = form.querySelector('.list-item').value;
     if (!itemContents) return
     let item = h('li', itemContents);
     items.push(item);
     let newTree = h('div', 
-        { className: 'list' }, 
+        { 
+            className: 'list',
+            onclick: (e) => e.target.classList.toggle('complete')
+        }, 
         [
             input(),
             h('ul', items)
@@ -46,11 +49,5 @@ function add(e) {
     let patches = diff(tree, newTree);
     rootNode = patch(rootNode, patches);
     tree = newTree;
-
-    document.querySelector('.add-btn')
-    .addEventListener('submit', (e) => {
-        e.preventDefault();
-        add();
-    });
 }
 
