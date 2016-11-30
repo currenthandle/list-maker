@@ -3,14 +3,7 @@ let diff = require('virtual-dom/diff');
 let patch = require('virtual-dom/patch');
 let createElement = require('virtual-dom/create-element');
 
-/*
-function render()  {
-	return h('div', 'hello');
-}
-*/
-
 let items = [];
-
 let tree = h('div', 
     { className: 'list' }, 
     input()
@@ -26,7 +19,8 @@ function input () {
     return h('form', [ 
         h('input', { 
             type: 'text',
-            className: 'list-item'
+            className: 'list-item',
+            value: ''
         }),
         h('button', 
             { className: 'add-btn' },
@@ -38,7 +32,9 @@ function input () {
 
 function add(e) {
     e.preventDefault();
-    let item = h('li', document.querySelector('.list-item').value);
+    let itemContents = document.querySelector('.list-item').value;
+    if (!itemContents) return
+    let item = h('li', itemContents);
     items.push(item);
     let newTree = h('div', 
         { className: 'list' }, 
@@ -50,6 +46,7 @@ function add(e) {
     let patches = diff(tree, newTree);
     rootNode = patch(rootNode, patches);
     tree = newTree;
+
     document.querySelector('.add-btn')
     .addEventListener('submit', (e) => {
         e.preventDefault();
@@ -57,14 +54,3 @@ function add(e) {
     });
 }
 
-
-/*
-setInterval(function () {
-      count++;
-
-      let newTree = render(count);
-      let patches = diff(tree, newTree);
-      rootNode = patch(rootNode, patches);
-      tree = newTree;
-}, 1000);
-*/
