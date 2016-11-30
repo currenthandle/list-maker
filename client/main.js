@@ -20,7 +20,7 @@ let rootNode = createElement(tree);
 
 document.querySelector('.content')
 .appendChild(rootNode)
-.addEventListener('submit', add(e) );
+.addEventListener('submit', add);
 
 function input () {
     return h('form', [ 
