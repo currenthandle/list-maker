@@ -40,7 +40,6 @@ function input () {
 
 
 function add(e) {
-    e.preventDefault();
     let item = h('li', document.querySelector('.list-item').value);
     items.push(item);
     let newTree = h('div', 
