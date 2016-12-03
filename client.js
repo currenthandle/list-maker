@@ -16,7 +16,7 @@ class ListMaker {
                 }),
                 h('button', 
                     { className: 'add-btn' },
-                    'Add'
+                    h('i', { className: 'fa fa-plus' })
                 )
             ]
         ); 

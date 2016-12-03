@@ -8,8 +8,10 @@ body{
             form{
                 padding: 0;
                 margin: 0;
+                display: flex;
                 .input-field {
-                    width: 79%;
+                    flex: 1 0 auto;
+                    //width: 79%;
                     //padding: 0;
                     //padding-top: .15rem;
                     padding: .15rem 0 0 .3rem;
@@ -20,21 +22,29 @@ body{
                     //box-shadow: none;
                 }
                 .add-btn {
-                    height: 1.6rem;
-                    width: 18%;
-                    padding: 0;
+                    flex: 0 1 auto;
+                    padding-right: 1rem;
+                    padding-left: 1rem;
+                    //height: 1.6rem;
+                    margin-top: .3rem;
+                    //width: 18%;
                     margin: 0;
                     //display: inline-block;
                     //background-color: #e3e3e3;
+                    i {
+                        font-size: 1.5rem;    
+                    }
                 }
             }
             .item-list {
+                width: 100%;
                 font-size: 1.3rem;
                 padding-left: .3rem;
                 padding-right: .5rem;
                 list-style: none;
                 margin-top: .5rem;
                 .item {
+                    margin-right: .6rem;
                     margin-bottom: .2rem;
                     text-align: left;
                     box-shadow: 0 .07rem .07rem black;
