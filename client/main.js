@@ -100,6 +100,7 @@ class Item {
                 className: this.classes
                     //.map(cls => '.'+ cls)
                     .reduce((acc, crt) => acc + ' ' + crt),
+                onclick: (e) => toggleComplete(this.index)
             },
             this.content 
         );
@@ -126,8 +127,8 @@ function add(e) {
     update();
 }
 
-function toggleComplete(listItem) {
-    listItem.toggleComplete();
+function toggleComplete(index) {
+    items[index].toggleComplete();
     update();
 }
 
