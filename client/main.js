@@ -1,11 +1,4 @@
-/*
-let h = require('virtual-dom/h');
-let diff = require('virtual-dom/diff');
-let patch = require('virtual-dom/patch');
-let createElement = require('virtual-dom/create-element');
-*/
-
-import { h, diff, patch, create-element } from 'virtual-dom';
+import { h, diff, patch, create as createElement } from 'virtual-dom';
 
 class ListMaker {
     constructor(itemList) {
