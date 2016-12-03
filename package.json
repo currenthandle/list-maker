@@ -15,8 +15,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "js": "browserify client/main.js -o public/bundle.js -t [ babelify --presets [ es2015 ] ]",
-    "js-w": "watchify client/main.js -o public/bundle.js -dv -t [ babelify --presets [ es2015 ] ]",
+    "css": "node-sass stlye.scss -o public/css",
+    "css-w": "node-sass style.scss -w -o public/css",
+    "js": "browserify client.js -o public/bundle.js -t [ babelify --presets [ es2015 ] ]",
+    "js-w": "watchify client.js -o public/bundle.js -dv -t [ babelify --presets [ es2015 ] ]",
     "dev": "shell-exec 'npm run js-w' 'nodemon server.js'",
     "start": "npm run js && node server.js"
   },
