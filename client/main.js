@@ -5,19 +5,21 @@ class ListMaker {
         this.itemList = itemList;
     }
     generateForm () {
-        return h('form', 
-        {  onsubmit: this.itemList.add },
-        [
-            h('input', { 
-                type: 'text',
-                className: 'input-field',
-                value: '',
-            }),
-            h('button', 
-                { className: 'add-btn' },
-                'Add'
-            )
-        ]); 
+        return h(
+            'form', 
+            { onsubmit: this.itemList.add },
+            [
+                h('input', { 
+                    type: 'text',
+                    className: 'input-field',
+                    value: '',
+                }),
+                h('button', 
+                    { className: 'add-btn' },
+                    'Add'
+                )
+            ]
+        ); 
     }
     generateNode() {
         return h(
@@ -29,7 +31,6 @@ class ListMaker {
             ]
         );
     }
-    
 }
 
 class ItemList {
@@ -69,9 +70,7 @@ class Item {
         return h(
             'li',
             { 
-                className: this.classes
-                    //.map(cls => '.'+ cls)
-                    .reduce((acc, crt) => acc + ' ' + crt),
+                className: this.classes.reduce((acc, crt) => acc + ' ' + crt),
                 onclick: (e) => this.toggleComplete()
             },
             this.content 
@@ -85,22 +84,23 @@ let items,
 
 (function intialize() {
     items = [];
-    let itemList = new ItemList(items);
-    let listMaker = new ListMaker(itemList);
+
+    let itemList = new ItemList(items),
+        listMaker = new ListMaker(itemList);
 
     tree = listMaker.generateNode();
     rootNode = createElement(tree);
         
-    document.querySelector('.content')
-        .appendChild(rootNode);
+    document.querySelector('.content').appendChild(rootNode);
 })()
 
 function update () {
-    let itemList = new ItemList(items);
-    let listMaker = new ListMaker(itemList);
+    let itemList = new ItemList(items),
+        listMaker = new ListMaker(itemList);
 
-    let newTree = listMaker.generateNode();
-    let patches = diff(tree, newTree);
+    let newTree = listMaker.generateNode(),
+        patches = diff(tree, newTree);
+
     rootNode = patch(rootNode, patches);
     tree = newTree;
 }
