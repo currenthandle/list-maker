@@ -63,6 +63,7 @@ class Item {
     toggleComplete(){
         this.complete = !this.complete;
         this.complete ? this.classes.push('complete') : this.classes.pop();
+        update();
     }
     generateNode(){
         return h(
@@ -71,7 +72,7 @@ class Item {
                 className: this.classes
                     //.map(cls => '.'+ cls)
                     .reduce((acc, crt) => acc + ' ' + crt),
-                onclick: (e) => toggleComplete(this.index)
+                onclick: (e) => this.toggleComplete()
             },
             this.content 
         );
@@ -88,12 +89,6 @@ let rootNode = createElement(tree);
 
 document.querySelector('.content')
     .appendChild(rootNode);
-
-
-function toggleComplete(index) {
-    items[index].toggleComplete();
-    update();
-}
 
 function update () {
     let itemlist = new ItemList(items);
