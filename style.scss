@@ -1,5 +1,6 @@
 body{
     .content{
+        padding-top: 3rem;
         text-align: center;
         .list-maker{
             margin: 0 20% 0 20%;
@@ -9,8 +10,9 @@ body{
                 margin: 0;
                 .input-field {
                     width: 79%;
-                    padding: 0;
-                    padding-top: .15rem;
+                    //padding: 0;
+                    //padding-top: .15rem;
+                    padding: .15rem 0 0 .3rem;
                     margin: 0;
                     height: 1.6rem;
                     font-size: 1.4rem;
@@ -36,9 +38,9 @@ body{
                     box-shadow: 0 .07rem .07rem black;
                     border-bottom-left-radius: .2rem;
                     border-bottom-right-radius: .2rem;
-                    padding: .22rem .1rem .21rem .5rem;
+                    padding: .217rem .1rem .21rem .6rem;
                     &.complete{
-                        text-decoration: line-through;     
+                        text-decoration: line-through;
                     }
                     &:nth-child(odd) {
                         background-color: #ccc;
