@@ -6,7 +6,7 @@ class ListMaker {
     }
     generateForm () {
         return h('form', 
-        {  onsubmit: add },
+        {  onsubmit: this.itemList.add },
         [
             h('input', { 
                 type: 'text',
@@ -42,6 +42,14 @@ class ItemList {
             { className: 'item-list' },
             items.map(item => item.generateNode())
         );
+    }
+    add(e) {
+        // don't reload the page
+        e.preventDefault();
+        let content = e.target.querySelector('.input-field').value;
+        if(!content) return;
+        items.push(new Item(content, items.length));
+        update();
     }
 }
 
@@ -81,14 +89,6 @@ let rootNode = createElement(tree);
 document.querySelector('.content')
     .appendChild(rootNode);
 
-function add(e) {
-    // don't reload the page
-    e.preventDefault();
-    let content = e.target.querySelector('.input-field').value;
-    if(!content) return;
-    items.push(new Item(content, items.length));
-    update();
-}
 
 function toggleComplete(index) {
     items[index].toggleComplete();
