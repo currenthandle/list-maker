@@ -79,19 +79,24 @@ class Item {
     }
 }
 
-let items = [];
+let items,
+    tree,
+    rootNode;
 
-let itemList = new ItemList(items);
-let listMaker = new ListMaker(itemList);
+(function intialize() {
+    items = [];
+    let itemList = new ItemList(items);
+    let listMaker = new ListMaker(itemList);
 
-let tree = listMaker.generateNode();
-let rootNode = createElement(tree);
-
-document.querySelector('.content')
-    .appendChild(rootNode);
+    tree = listMaker.generateNode();
+    rootNode = createElement(tree);
+        
+    document.querySelector('.content')
+        .appendChild(rootNode);
+})()
 
 function update () {
-    let itemlist = new ItemList(items);
+    let itemList = new ItemList(items);
     let listMaker = new ListMaker(itemList);
 
     let newTree = listMaker.generateNode();
@@ -99,4 +104,3 @@ function update () {
     rootNode = patch(rootNode, patches);
     tree = newTree;
 }
-
