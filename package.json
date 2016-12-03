@@ -20,7 +20,7 @@
     "css-w": "mkdir -p public && node-sass style.scss -w -o public",
     "js": "mkdir -p public && browserify client.js -o public/bundle.js -t [ babelify --presets [ es2015 ] ]",
     "js-w": "mkdir -p public && watchify client.js -o public/bundle.js -dv -t [ babelify --presets [ es2015 ] ]",
-    "dev": "npm run start && shell-exec 'npm run css-w' 'npm run js-w' 'nodemon server.js'",
+    "dev": "shell-exec 'npm run css-w' 'npm run js-w' 'nodemon server.js'",
     "start": "npm run css && npm run js && node server.js"
   },
   "author": "",
