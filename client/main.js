@@ -120,8 +120,8 @@ document.querySelector('.content')
 function add(e) {
     // don't reload the page
     e.preventDefault();
-    console.log('target', e.target);
     let content = e.target.querySelector('.input-field').value;
+    if(!content) return;
     items.push(new Item(content, items.length));
     update();
 }
