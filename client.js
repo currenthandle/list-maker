@@ -1,8 +1,8 @@
-import { h, diff, patch, create as createElement } from 'virtual-dom';
+import { h } from 'virtual-dom';
 
 class ListMaker {
-    constructor(itemList) {
-        this.itemList = itemList;
+    constructor(items) {
+        this.itemList = new ItemList(items);
     }
     generateForm () {
         return h(
@@ -12,7 +12,7 @@ class ListMaker {
                 h('input', { 
                     type: 'text',
                     className: 'input-field',
-                    value: '',
+                    value: ''
                 }),
                 h('button', 
                     { className: 'add-btn' },
@@ -78,6 +78,10 @@ class Item {
     }
 }
 
+import { diff, patch, create as createElement } from 'virtual-dom';
+// let diff = require('virtual-dom').diff;
+// let patch = require('virtual-dom').patch;
+
 let items,
     tree,
     rootNode;
@@ -85,8 +89,7 @@ let items,
 (function intialize() {
     items = [];
 
-    let itemList = new ItemList(items),
-        listMaker = new ListMaker(itemList);
+    let listMaker = new ListMaker(items);
 
     tree = listMaker.generateNode();
     rootNode = createElement(tree);
@@ -95,8 +98,7 @@ let items,
 })()
 
 function update () {
-    let itemList = new ItemList(items),
-        listMaker = new ListMaker(itemList);
+    let listMaker = new ListMaker(items);
 
     let newTree = listMaker.generateNode(),
         patches = diff(tree, newTree);
