@@ -9,7 +9,7 @@ class App {
             'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => update(new Author())}, 'Author'),
+                h('button', { onclick: (e) => update(new Description())}, 'Description'),
                 h('button', { onclick: (e) => update(new ListMaker(items)) }, 'App'),
                 h('button', { onclick: (e) => update(new Resources()) },'Resources'),
             ]
@@ -26,7 +26,7 @@ class App {
         );
     }
 }
-class Author {
+class Description {
     generateNode() {
         return h(
             'div',
@@ -36,7 +36,7 @@ class Author {
                 h('div', { className: 'email'}, h('a', { href: 'mailto:casey.siebel@gmail.com' }, 'Casey.Siebel@gmail.com')),
                 h('div', { className: 'twitter' }, h('a', { href: 'https://twitter.com/CurrentHandle' }, '@CurrentHandle')),
                 h('div', { className: 'irc' }, 'leptone (Freenode)'),
-                h('div', { className: 'github' }, h('a', { href: 'https://github.com/leptone' }, 'Github'))
+                h('div', { className: 'github' }, h('a', { href: 'https://github.com/leptone/list-maker' }, 'Github'))
 
             ]
         );
