@@ -9,9 +9,9 @@ class App {
             'div',
             { className: 'nav' },
             [
-                h('button', 'Author'),
-                h('button', { onclick: update }, 'App'),
-                h('button', 'Acknowledgements'),
+                h('button', { onclick: (e) => update(new Author())}, 'Author'),
+                h('button', { onclick: (e) => update(new ListMaker(items)) }, 'App'),
+                h('button', { onclick: (e) => update(new Resources()) },'Resources'),
             ]
         );
     }
@@ -22,6 +22,36 @@ class App {
             [
                 this.generateNav(),
                 this.location.generateNode()
+            ]
+        );
+    }
+}
+class Author {
+    generateNode() {
+        return h(
+            'div',
+            { className: 'author' },
+            [
+                h('div', { className: 'name' }, 'Casey Siebel'),
+                h('div', { className: 'email'}, h('a', { href: 'mailto:casey.siebel@gmail.com' }, 'Casey.Siebel@gmail.com')),
+                h('div', { className: 'twitter' }, h('a', { href: 'https://twitter.com/CurrentHandle' }, '@CurrentHandle')),
+                h('div', { className: 'irc' }, 'leptone (Freenode)'),
+                h('div', { className: 'github' }, h('a', { href: 'https://github.com/leptone' }, 'Github'))
+
+            ]
+        );
+    }
+}
+class Resources {
+    generateNode() {
+        return h(
+            'div',
+            { className: 'resources' },
+            [
+                h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Matt-Esch/virtual-dom'),
+                h('a', { href: 'https://www.youtube.com/watch?v=I_t_byKAL6U' }, 'Cyber Wizard Institute - Substack'),
+                h('a', { href: 'https://medium.com/cardlife-app/what-is-virtual-dom-c0ec6d6a925c#.zgnhxujrw' }, 'What is a Virtual Dom - Tony Freed'),
+                h('a', { href: 'https://www.youtube.com/watch?v=BYbgopx44vo' }, 'React and the Virtual DOM')
             ]
         );
     }
