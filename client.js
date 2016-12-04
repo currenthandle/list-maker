@@ -9,7 +9,7 @@ class App {
             'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => update(new Description())}, 'Description'),
+                h('button', { onclick: (e) => update(new Info())}, 'Info'),
                 h('button', { onclick: (e) => update(new ListMaker(items)) }, 'App'),
                 h('button', { onclick: (e) => update(new Resources()) },'Resources'),
             ]
@@ -26,7 +26,7 @@ class App {
         );
     }
 }
-class Description {
+class Info {
     generateNode() {
         return h(
             'div',
