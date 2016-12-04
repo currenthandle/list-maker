@@ -9,7 +9,8 @@ class App {
             'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => update(new Info())}, 'Info'),
+                h('button', { onclick: (e) => update(new Dev()) }, 'Dev'),
+                h('button', { onclick: (e) => update(new Info()) }, 'Info'),
                 h('button', { onclick: (e) => update(new ListMaker(items)) }, 'App'),
                 h('button', { onclick: (e) => update(new Resources()) },'Resources'),
             ]
@@ -26,6 +27,23 @@ class App {
         );
     }
 }
+class Dev {
+    generateNode() {
+        return h(
+            'div',
+            { className: 'contact' }, 
+            [
+                h('h4', { className: 'label' }, 'Get In Touch'),
+                h('div', { className: 'name' }, 'Casey Siebel'),
+                h('div', { className: 'email'}, h('a', { href: 'mailto:casey.siebel@gmail.com' }, 'Casey.Siebel@gmail.com')),
+                h('div', { className: 'twitter' }, h('a', { href: 'https://twitter.com/CurrentHandle' }, '@CurrentHandle')),
+                h('div', { className: 'irc' }, 'leptone (Freenode)'),
+                h('div', { className: 'github' }, h('a', { href: 'https://github.com/leptone/list-maker' }, 'Github'))
+            ]
+        )
+
+    }
+}
 class Info {
     generateNode() {
         return h(
@@ -37,25 +55,14 @@ class Info {
                     { className: 'tools' },
                     [
                         h('h4', { className: 'label' }, 'This App Was Made With'),
-                        h('div', h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Matt-Esch/virtual-dom')),
-                        h('div', h('a', { href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes' }, 'Class Keyword')),
+                        h('div', h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Virtual Dom')),
                         h('div', h('a', { href: 'https://github.com/substack/node-browserify' }, 'Browserify')),
-                        h('div', h('a', { href: 'https://github.com/babel/babelify' }, 'Babelify')),
+                        h('div', h('a', { href: 'https://github.com/babel/babelify' }, 'Babel (ES2015)')),
+                        h('div', h('a', { href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes' }, 'Object Oriented JS')),
                         h('div', h('a', { href: 'https://www.npmjs.com/package/node-sass' }, 'Node-Sass')),
+                        h('div', h('a', { href: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/' }, 'Flexbox')),
                     ]
                 ),
-                h(
-                    'div',
-                    { className: 'contact' }, 
-                    [
-                        h('h4', { className: 'label' }, 'Get In Touch'),
-                        h('div', { className: 'name' }, 'Casey Siebel'),
-                        h('div', { className: 'email'}, h('a', { href: 'mailto:casey.siebel@gmail.com' }, 'Casey.Siebel@gmail.com')),
-                        h('div', { className: 'twitter' }, h('a', { href: 'https://twitter.com/CurrentHandle' }, '@CurrentHandle')),
-                        h('div', { className: 'irc' }, 'leptone (Freenode)'),
-                        h('div', { className: 'github' }, h('a', { href: 'https://github.com/leptone/list-maker' }, 'Github'))
-                    ]
-                )
             ]
         );
     }
@@ -102,7 +109,7 @@ class ListMaker {
             { className: 'list-maker' },
             [
                 h('h1', { className: 'title' }, 'List Maker'),
-                h('h2', { className: 'subtitle' }, 'A Simple List Making Application Made With Virtual-Dom'),
+                h('h2', { className: 'subtitle' }, 'A Simple List Making SPA Made With Virtual-Dom'),
                 h('h3', { className: 'vDom-link' }, h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Matt-Esch/virtual-dom')),
                 this.generateForm(),
                 this.itemList.generateNode()

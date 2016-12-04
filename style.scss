@@ -2,11 +2,23 @@ body{
     //background-image: url('back1.jpg');
     background-image: url('back2.jpg');
     .content{
+        .nav {
+            margin-left: 20%;
+            margin-right: 20%;
+            display: flex;
+            justify-content: center;
+            button {
+                flex: 0 1 auto;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+        }
         padding-top: 3rem;
         text-align: center;
         @import "partials/list-maker";
         @import "partials/resources";
         @import "partials/info";
+        @import "partials/dev";
     }
 }
 
