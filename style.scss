@@ -1,16 +1,32 @@
 body{
+    //background-image: url('back1.jpg');
+    background-image: url('back2.jpg');
     .content{
         padding-top: 3rem;
         text-align: center;
         .list-maker{
             margin: 0 20% 0 20%;
             //width: 70%;
+            .title {
+                font-size: 3rem;
+                margin-bottom: .9rem;
+            }
+            .subtitle {
+                margin-top: .2rem;
+            }
+            h3 {
+                a {
+                    text-decoration: none;
+                    color: rgb(64, 120, 220);
+                }
+            }
             form{
                 padding: 0;
                 margin: 0;
                 display: flex;
                 .input-field {
                     flex: 1 0 auto;
+                    background-color: rgba(255, 255, 255, .6);
                     //width: 79%;
                     //padding: 0;
                     //padding-top: .15rem;
@@ -55,7 +71,7 @@ body{
                         text-decoration: line-through;
                     }
                     &:nth-child(odd) {
-                        background-color: #ccc;
+                        background-color: rgba(204, 204, 204, .6);
                     }
                 }
             }
