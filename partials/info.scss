@@ -1,20 +1,18 @@
-.info {
     
-    & > div {
-        .label{
-            
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        & > div {
-            margin-top: 1rem;
-            //text-align: left;
-            a {
-                text-decoration: none;
-                font-size: 1.4rem;
-            }
-        }
-        display: inline-block;
-        width: 45%;
+.info {
+    .label{
+        
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
     }
+    & > div {
+        margin-top: 1rem;
+        //text-align: left;
+        a {
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
+    }
+    display: inline-block;
+    width: 45%;
 }

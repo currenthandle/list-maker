@@ -1,0 +1,39 @@
+.dev {
+    display: flex;    
+    justify-content: center;
+    margin-top: 3rem;
+    .contact {
+        flex: 0 1 auto;
+        margin-right: 3%;
+        .label{
+            
+            font-size: 2rem;
+            margin-bottom: 1.7rem;
+            margin-top: 3rem;
+        }
+        .name {
+            font-size: 1.3rem;
+            
+        }
+        & > div {
+            margin-top: .8rem;
+            //text-align: left;
+            a {
+                text-decoration: none;
+                font-size: 1.4rem;
+            }
+        }
+        .irc {
+            font-size: 1.4rem;
+        }
+        display: inline-block;
+        //width: 45%;
+    }
+    .minion {
+        border-radius: .5rem;
+        margin-top: 2.6rem;
+        margin-left: 3%;
+        flex: 0 1 auto;
+        height: 230px;
+    }
+}
