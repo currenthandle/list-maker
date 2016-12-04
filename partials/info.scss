@@ -1,0 +1,12 @@
+.info {
+    
+    & > div {
+        .label{
+            
+            font-size: 1.5rem;
+            margin-bottom: .6rem;
+        }
+        display: inline-block;
+        width: 45%;
+    }
+}

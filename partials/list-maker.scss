@@ -1,0 +1,73 @@
+
+.list-maker{
+    margin: 0 20% 0 20%;
+    //width: 70%;
+    .title {
+        font-size: 3rem;
+        margin-bottom: .9rem;
+    }
+    .subtitle {
+        margin-top: .2rem;
+    }
+    h3 {
+        a {
+            text-decoration: none;
+            color: rgb(64, 120, 220);
+        }
+    }
+    form{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        .input-field {
+            flex: 1 0 auto;
+            background-color: rgba(255, 255, 255, .6);
+            //width: 79%;
+            //padding: 0;
+            //padding-top: .15rem;
+            padding: .15rem 0 0 .3rem;
+            margin: 0;
+            height: 1.6rem;
+            font-size: 1.4rem;
+            //border-radius: .17rem;
+            //box-shadow: none;
+        }
+        .add-btn {
+            flex: 0 1 auto;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            //height: 1.6rem;
+            margin-top: .3rem;
+            //width: 18%;
+            margin: 0;
+            //display: inline-block;
+            //background-color: #e3e3e3;
+            i {
+                font-size: 1.5rem;    
+            }
+        }
+    }
+    .item-list {
+        width: 100%;
+        font-size: 1.3rem;
+        padding-left: .3rem;
+        padding-right: .5rem;
+        list-style: none;
+        margin-top: .5rem;
+        .item {
+            margin-right: .6rem;
+            margin-bottom: .2rem;
+            text-align: left;
+            box-shadow: 0 .07rem .07rem black;
+            border-bottom-left-radius: .2rem;
+            border-bottom-right-radius: .2rem;
+            padding: .217rem .1rem .21rem .6rem;
+            &.complete{
+                text-decoration: line-through;
+            }
+            &:nth-child(odd) {
+                background-color: rgba(204, 204, 204, .6);
+            }
+        }
+    }
+}
