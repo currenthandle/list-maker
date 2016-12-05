@@ -11,7 +11,7 @@ module.exports = class Item {
     toggleComplete(){
         this.complete = !this.complete;
         this.complete ? this.classes.push('complete') : this.classes.pop();
-        this.update(listMaker);
+        this.update();
     }
     generateNode(){
         return h(

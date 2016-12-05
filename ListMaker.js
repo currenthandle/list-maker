@@ -15,7 +15,7 @@ module.exports = class ListMaker {
         let content = e.target.querySelector('.input-field').value;
         if(!content) return;
         this.items.push(new Item(content, this.items.length, this.update));
-        update();
+        this.update();
     }
     generateForm () {
         return h(
