@@ -1,12 +1,18 @@
 .resources{
-    margin-top: 3rem;
+    //margin-top: 3rem;
+    .label {
+        color: #3a3434;
+        font-size: 1.8rem;
+        margin-top: 3rem;
+        margin-bottom: 1.8rem;
+    }
     div {
-        margin-bottom: 1rem;
+        margin-top: .8rem;
     
         a {
             //display: inline-block;
             text-decoration: none;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
     }
 }

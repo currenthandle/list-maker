@@ -14,11 +14,15 @@ body{
                 //border: none;
                 border: solid #898989 2px;
                 border-top: none;
+                color: #3a3434;
                 border-bottom: none;
                 font-size: 1.5rem;
                 flex: 0 1 auto;
                 margin-left: 5%;
                 margin-right: 5%;
+                &:focus {
+                    outline: none;
+                }
             }
         }
         padding-top: 3rem;

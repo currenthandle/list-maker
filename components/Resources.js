@@ -6,6 +6,7 @@ module.exports = class Resources {
         return h( 'div',
             { className: 'resources' },
             [
+                h('h3', { className: 'label' }, 'Find Out More'),
                 h( 'div', 
                     h( 'a', 
                         { href: 'https://github.com/Matt-Esch/virtual-dom' }, 
