@@ -12,10 +12,7 @@ module.exports = class App {
     constructor(update){
         this.update = update;
 
-        //this.generateNode = this.generateNode.bind(this);
-        this.changeView = this.changeView.bind(this);
-
-
+        // Components
         this.location = this.listMaker = new ListMaker(update); 
         this.dev = new Dev();
         this.info = new Info();
@@ -38,7 +35,6 @@ module.exports = class App {
         );
     }
     generateNode() {
-        console.log('this.location', this.location);
         return h (
             'div',
             { className: 'app' },

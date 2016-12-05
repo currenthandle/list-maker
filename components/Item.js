@@ -14,8 +14,7 @@ module.exports = class Item {
         this.update();
     }
     generateNode(){
-        return h(
-            'li',
+        return h( 'li',
             { 
                 className: this.classes.reduce((acc, crt) => acc + ' ' + crt),
                 onclick: (e) => this.toggleComplete()

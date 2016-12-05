@@ -18,37 +18,42 @@ module.exports = class ListMaker {
         this.update();
     }
     generateForm () {
-        return h(
-            'form', 
+        return h( 'form', 
             { onsubmit: this.add },
             [
-                h('input', { 
-                    type: 'text',
-                    className: 'input-field',
-                    value: ''
-                }),
-                h('button', 
+                h( 'input', 
+                    { 
+                        type: 'text',
+                        className: 'input-field',
+                        value: ''
+                    }
+                ),
+                h( 'button', 
                     { className: 'add-btn' },
-                    h('i', { className: 'fa fa-plus' })
+                    h( 'i', { className: 'fa fa-plus' })
                 )
             ]
         ); 
     }
     generateList() {
-        return h(
-            'ul',
+        return h( 'ul',
             { className: 'item-list' },
             this.items.map(item => item.generateNode())
         );
     }
     generateNode() {
-        return h(
-            'div', 
+        return h( 'div', 
             { className: 'list-maker' },
             [
-                h('h1', { className: 'title' }, 'List Maker'),
-                h('h2', { className: 'subtitle' }, 'A Simple List Making SPA Made With Virtual-Dom'),
-                h('h3', { className: 'vDom-link' }, h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Matt-Esch/virtual-dom')),
+                h( 'h1', { className: 'title' }, 'List Maker'),
+                h( 'h2', { className: 'subtitle' }, 'A Simple List Making SPA Made With Virtual-Dom'),
+                h( 'h3', 
+                    { className: 'vDom-link' }, 
+                    h( 'a', 
+                        { href: 'https://github.com/Matt-Esch/virtual-dom' }, 
+                        'Matt-Esch/virtual-dom'
+                    )
+                ),
                 this.generateForm(),
                 this.generateList()
             ]
