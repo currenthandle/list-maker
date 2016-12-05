@@ -3,6 +3,7 @@ import { h } from 'virtual-dom';
 class App {
     constructor(location){
        this.location = location; 
+       this.generateNode = this.generateNode.bind(this);
     }
     generateNav() {
         return h(
@@ -11,12 +12,13 @@ class App {
             [
                 h('button', { onclick: (e) => update(new Dev()) }, 'Dev'),
                 h('button', { onclick: (e) => update(new Info()) }, 'Info'),
-                h('button', { onclick: (e) => update(new ListMaker(items)) }, 'App'),
+                h('button', { onclick: (e) => update(listMaker) }, 'App'),
                 h('button', { onclick: (e) => update(new Resources()) },'Resources'),
             ]
         );
     }
     generateNode() {
+        console.log('this.location', this.location);
         return h (
             'div',
             { className: 'app' },
@@ -34,14 +36,16 @@ import Info from './Info';
 class ListMaker {
     constructor() {
         this.items = [];
+        this.add = this.add.bind(this);
+        this.generateNode = this.generateNode.bind(this);
     }
     add(e) {
         // don't reload the page
         e.preventDefault();
         let content = e.target.querySelector('.input-field').value;
         if(!content) return;
-        items.push(new Item(content, items.length));
-        update(new ListMaker(items));
+        this.items.push(new Item(content, this.items.length));
+        update(this);
     }
     generateForm () {
         return h(
@@ -64,7 +68,7 @@ class ListMaker {
         return h(
             'ul',
             { className: 'item-list' },
-            items.map(item => item.generateNode())
+            this.items.map(item => item.generateNode())
         );
     }
     generateNode() {
@@ -111,14 +115,12 @@ import { diff, patch, create as createElement } from 'virtual-dom';
 // let diff = require('virtual-dom').diff;
 // let patch = require('virtual-dom').patch;
 
-let items,
-    tree,
+let tree,
     rootNode;
 
 let listMaker
 
 (function intialize() {
-    items = [];
 
     listMaker = new ListMaker();
     let app = new App(listMaker);
@@ -131,6 +133,7 @@ let listMaker
 })()
 
 function update (location) {
+    console.log('location from update', location)
     //let listMaker = new ListMaker(items);
     let app = new App(location);
 
