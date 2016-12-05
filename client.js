@@ -118,7 +118,8 @@ import { diff, patch, create as createElement } from 'virtual-dom';
 let tree,
     rootNode;
 
-let listMaker
+let app,
+    listMaker;
 
 (function intialize() {
 
@@ -135,7 +136,7 @@ let listMaker
 function update (location) {
     console.log('location from update', location)
     //let listMaker = new ListMaker(items);
-    let app = new App(location);
+    app = new App(location);
 
     let newTree = app.generateNode(),
         patches = diff(tree, newTree);
