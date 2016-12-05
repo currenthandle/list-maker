@@ -3,8 +3,7 @@ import { h } from 'virtual-dom';
 
 module.exports = class Resources {
     generateNode() {
-        return h(
-            'div',
+        return h( 'div',
             { className: 'resources' },
             [
                 h( 'div', 

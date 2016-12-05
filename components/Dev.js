@@ -2,15 +2,13 @@ import { h } from 'virtual-dom';
 
 module.exports = class Dev {
     generateNode() {
-        return h(
-            'div',
+        return h( 'div',
             { className: 'dev' }, 
             [
-                h(
-                    'div', 
+                h( 'div', 
                     { className: 'contact' }, 
                     [
-                        h('h3', { className: 'label' }, 'Say Hi!'),
+                        h( 'h3', { className: 'label' }, 'Say Hi!'),
                         //h('h4', { className: 'name' }, 'Casey Siebel'),
                         h( 'div', 
                             { className: 'email'}, 
@@ -34,15 +32,14 @@ module.exports = class Dev {
                         ),
                         h( 'div', 
                             { className: 'github' }, 
-                            h('a', 
+                            h( 'a', 
                                 { href: 'https://github.com/leptone/list-maker' }, 
                                 'Github'
                             )
                         )
                     ]
                 ),
-                h(
-                    'img',
+                h( 'img',
                     { 
                         className: 'minion',
                         src: 'minion.jpg'
