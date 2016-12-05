@@ -8,6 +8,14 @@ body{
             display: flex;
             justify-content: center;
             button {
+                padding: .2rem .5rem .2rem .5rem;
+                border-radius: .3rem;
+                //box-shadow: 0 0 .51rem;
+                //border: none;
+                border: solid #898989 2px;
+                border-top: none;
+                border-bottom: none;
+                font-size: 1.5rem;
                 flex: 0 1 auto;
                 margin-left: 5%;
                 margin-right: 5%;

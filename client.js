@@ -63,11 +63,11 @@ class Info {
             'div',
             { className: 'info' },
             [
+                h('h4', { className: 'label' }, 'This App Was Made With'),
                 h(
                     'div',
                     { className: 'tools' },
                     [
-                        h('h4', { className: 'label' }, 'This App Was Made With'),
                         h('div', h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Virtual Dom')),
                         h('div', h('a', { href: 'https://github.com/substack/node-browserify' }, 'Browserify')),
                         h('div', h('a', { href: 'https://github.com/babel/babelify' }, 'Babel (ES2015)')),
