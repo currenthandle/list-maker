@@ -1,22 +1,28 @@
-import ListMaker from './ListMaker';
-import Item from './Item';
-
-import Resources from './Resources';
-import Dev from './Dev';
-import Info from './Info';
-
 import { h } from 'virtual-dom';
 
+//import App from './App';
+
+import ListMaker from './ListMaker';
+
+import Dev from './Dev';
+import Info from './Info';
+import Resources from './Resources';
+
 module.exports = class App {
-    constructor(location, update){
-       this.location = location; 
-       //this.generateNode = this.generateNode.bind(this);
-       this.changeView = this.changeView.bind(this);
-       this.update = update;
+    constructor(update){
+        this.update = update;
+
+        //this.generateNode = this.generateNode.bind(this);
+        this.changeView = this.changeView.bind(this);
+
+
+        this.location = this.listMaker = new ListMaker(update); 
+        this.dev = new Dev();
+        this.info = new Info();
+        this.resources = new Resources();
     }
     changeView(location) {
         this.location = location;
-        console.log('update in location', location)
         this.update(); 
     }
     generateNav() {
@@ -24,10 +30,10 @@ module.exports = class App {
             'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => this.changeView(new Dev()) }, 'Dev'),
-                h('button', { onclick: (e) => this.changeView(new Info()) }, 'Info'),
-                h('button', { onclick: (e) => this.changeView(listMaker) }, 'App'),
-                h('button', { onclick: (e) => this.changeView(new Resources()) },'Resources'),
+                h('button', { onclick: (e) => this.changeView(this.dev) }, 'Dev'),
+                h('button', { onclick: (e) => this.changeView(this.info) }, 'Info'),
+                h('button', { onclick: (e) => this.changeView(this.listMaker) }, 'App'),
+                h('button', { onclick: (e) => this.changeView(this.resources) },'Resources'),
             ]
         );
     }
