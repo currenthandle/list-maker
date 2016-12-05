@@ -1,14 +1,13 @@
-import { h } from 'virtual-dom';
-
-//import App from './App';
-
 import ListMaker from './ListMaker';
+import Item from './Item';
 
+import Resources from './Resources';
 import Dev from './Dev';
 import Info from './Info';
-import Resources from './Resources';
 
-class App {
+import { h } from 'virtual-dom';
+
+module.exports = class App {
     constructor(location, update){
        this.location = location; 
        //this.generateNode = this.generateNode.bind(this);
@@ -44,37 +43,3 @@ class App {
         );
     }
 }
-
-
-
-import { diff, patch, create as createElement } from 'virtual-dom';
-// let diff = require('virtual-dom').diff;
-// let patch = require('virtual-dom').patch;
-
-let tree,
-    rootNode;
-
-let app,
-    listMaker;
-
-(function intialize() {
-
-    listMaker = new ListMaker(update);
-    app = new App(listMaker, update);
-
-    tree = app.generateNode();
-    //tree = listMaker.generateNode();
-    rootNode = createElement(tree);
-        
-    document.querySelector('.content').appendChild(rootNode);
-})()
-
-function update () {
-    let newTree = app.generateNode()
-    console.log('newTree', newTree)
-    let  patches = diff(tree, newTree);
-
-    rootNode = patch(rootNode, patches);
-    tree = newTree;
-}
-
