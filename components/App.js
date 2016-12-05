@@ -1,7 +1,5 @@
 import { h } from 'virtual-dom';
 
-//import App from './App';
-
 import ListMaker from './ListMaker';
 
 import Dev from './Dev';
@@ -23,8 +21,7 @@ module.exports = class App {
         this.update(); 
     }
     generateNav() {
-        return h(
-            'div',
+        return h( 'div',
             { className: 'nav' },
             [
                 h('button', { onclick: (e) => this.changeView(this.dev) }, 'Dev'),
@@ -35,8 +32,7 @@ module.exports = class App {
         );
     }
     generateNode() {
-        return h (
-            'div',
+        return h ( 'div',
             { className: 'app' },
             [
                 this.generateNav(),
