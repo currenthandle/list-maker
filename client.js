@@ -4,9 +4,9 @@ class App {
     constructor(location){
        this.location = location; 
        //this.generateNode = this.generateNode.bind(this);
-       this.update = this.update.bind(this);
+       this.changeView = this.changeView.bind(this);
     }
-    update(location) {
+    changeView(location) {
         this.location = location;
         console.log('update in location', location)
         update(); 
@@ -16,10 +16,10 @@ class App {
             'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => this.update(new Dev()) }, 'Dev'),
-                h('button', { onclick: (e) => this.update(new Info()) }, 'Info'),
-                h('button', { onclick: (e) => this.update(listMaker) }, 'App'),
-                h('button', { onclick: (e) => this.update(new Resources()) },'Resources'),
+                h('button', { onclick: (e) => this.changeView(new Dev()) }, 'Dev'),
+                h('button', { onclick: (e) => this.changeView(new Info()) }, 'Info'),
+                h('button', { onclick: (e) => this.changeView(listMaker) }, 'App'),
+                h('button', { onclick: (e) => this.changeView(new Resources()) },'Resources'),
             ]
         );
     }
