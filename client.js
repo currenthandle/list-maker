@@ -27,73 +27,9 @@ class App {
         );
     }
 }
-class Dev {
-    generateNode() {
-        return h(
-            'div',
-            { className: 'dev' }, 
-            [
-                h(
-                    'div', 
-                    { className: 'contact' }, 
-                    [
-                        h('h3', { className: 'label' }, 'Say Hi!'),
-                        //h('h4', { className: 'name' }, 'Casey Siebel'),
-                        h('div', { className: 'email'}, h('a', { href: 'mailto:casey.siebel@gmail.com' }, 'Casey.Siebel@gmail.com')),
-                        h('div', { className: 'twitter' }, h('a', { href: 'https://twitter.com/CurrentHandle' }, 'Twitter: @CurrentHandle')),
-                        h('div', { className: 'irc' }, h('a', { href: 'https://webchat.freenode.net/' }, 'IRC: @leptone')),
-                        h('div', { className: 'github' }, h('a', { href: 'https://github.com/leptone/list-maker' }, 'Github'))
-                    ]
-                ),
-                h(
-                    'img',
-                    { 
-                        className: 'minion',
-                        src: 'minion.jpg'
-                    }
-                )
-            ]
-        )
-
-    }
-}
-class Info {
-    generateNode() {
-        return h(
-            'div',
-            { className: 'info' },
-            [
-                h('h4', { className: 'label' }, 'This App Was Made With'),
-                h(
-                    'div',
-                    { className: 'tools' },
-                    [
-                        h('div', h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Virtual Dom')),
-                        h('div', h('a', { href: 'https://github.com/substack/node-browserify' }, 'Browserify')),
-                        h('div', h('a', { href: 'https://github.com/babel/babelify' }, 'Babel (ES2015)')),
-                        h('div', h('a', { href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes' }, 'Object Oriented JS')),
-                        h('div', h('a', { href: 'https://www.npmjs.com/package/node-sass' }, 'Node-Sass')),
-                        h('div', h('a', { href: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/' }, 'Flexbox')),
-                    ]
-                ),
-            ]
-        );
-    }
-}
-class Resources {
-    generateNode() {
-        return h(
-            'div',
-            { className: 'resources' },
-            [
-                h('div', h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Matt-Esch/virtual-dom')),
-                h('div', h('a', { href: 'https://medium.com/cardlife-app/what-is-virtual-dom-c0ec6d6a925c#.zgnhxujrw' }, 'What is a Virtual Dom - Tony Freed')),
-                h('div', h('a', { href: 'https://www.youtube.com/watch?v=BYbgopx44vo' }, 'React and the Virtual DOM')),
-                h('div', h('a', { href: 'https://www.youtube.com/watch?v=I_t_byKAL6U' }, 'Cyber Wizard Institute - Substack')),
-            ]
-        );
-    }
-}
+import Resources from './Resources';
+import Dev from './Dev';
+import Info from './Info';
 
 class ListMaker {
     constructor(items) {
@@ -208,6 +144,3 @@ function update (location) {
     tree = newTree;
 }
 
-function author () {
-
-}
