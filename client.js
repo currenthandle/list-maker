@@ -1,15 +1,16 @@
 import { h } from 'virtual-dom';
 
 class App {
-    constructor(location){
+    constructor(location, update){
        this.location = location; 
        //this.generateNode = this.generateNode.bind(this);
        this.changeView = this.changeView.bind(this);
+       this.update = update;
     }
     changeView(location) {
         this.location = location;
         console.log('update in location', location)
-        update(); 
+        this.update(); 
     }
     generateNav() {
         return h(
@@ -40,17 +41,18 @@ import Dev from './Dev';
 import Info from './Info';
 
 class ListMaker {
-    constructor() {
+    constructor(update) {
         this.items = [];
         this.add = this.add.bind(this);
         this.generateNode = this.generateNode.bind(this);
+        this.update = update;
     }
     add(e) {
         // don't reload the page
         e.preventDefault();
         let content = e.target.querySelector('.input-field').value;
         if(!content) return;
-        this.items.push(new Item(content, this.items.length));
+        this.items.push(new Item(content, this.items.length, this.update));
         update();
     }
     generateForm () {
@@ -94,16 +96,17 @@ class ListMaker {
 
 
 class Item {
-    constructor(content, index){
+    constructor(content, index, update){
         this.content = content; 
         this.index = index;
         this.classes = ['item'];
         this.complete = false;
+        this.update = update;
     }
     toggleComplete(){
         this.complete = !this.complete;
         this.complete ? this.classes.push('complete') : this.classes.pop();
-        update(listMaker);
+        this.update(listMaker);
     }
     generateNode(){
         return h(
@@ -129,8 +132,8 @@ let app,
 
 (function intialize() {
 
-    listMaker = new ListMaker();
-    app = new App(listMaker);
+    listMaker = new ListMaker(update);
+    app = new App(listMaker, update);
 
     tree = app.generateNode();
     //tree = listMaker.generateNode();
