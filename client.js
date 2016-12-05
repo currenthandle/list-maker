@@ -51,7 +51,7 @@ class ListMaker {
         let content = e.target.querySelector('.input-field').value;
         if(!content) return;
         this.items.push(new Item(content, this.items.length));
-        update(this);
+        update();
     }
     generateForm () {
         return h(
