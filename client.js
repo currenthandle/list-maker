@@ -1,4 +1,4 @@
-import App from './App';
+import App from './components/App';
 import { diff, patch, create as createElement } from 'virtual-dom';
 // let diff = require('virtual-dom').diff;
 // let patch = require('virtual-dom').patch;
