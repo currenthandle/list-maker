@@ -32,13 +32,21 @@ import Dev from './Dev';
 import Info from './Info';
 
 class ListMaker {
-    constructor(items) {
-        this.itemList = new ItemList(items);
+    constructor() {
+        this.items = [];
+    }
+    add(e) {
+        // don't reload the page
+        e.preventDefault();
+        let content = e.target.querySelector('.input-field').value;
+        if(!content) return;
+        items.push(new Item(content, items.length));
+        update(new ListMaker(items));
     }
     generateForm () {
         return h(
             'form', 
-            { onsubmit: this.itemList.add },
+            { onsubmit: this.add },
             [
                 h('input', { 
                     type: 'text',
@@ -52,6 +60,13 @@ class ListMaker {
             ]
         ); 
     }
+    generateList() {
+        return h(
+            'ul',
+            { className: 'item-list' },
+            items.map(item => item.generateNode())
+        );
+    }
     generateNode() {
         return h(
             'div', 
@@ -61,32 +76,12 @@ class ListMaker {
                 h('h2', { className: 'subtitle' }, 'A Simple List Making SPA Made With Virtual-Dom'),
                 h('h3', { className: 'vDom-link' }, h('a', { href: 'https://github.com/Matt-Esch/virtual-dom' }, 'Matt-Esch/virtual-dom')),
                 this.generateForm(),
-                this.itemList.generateNode()
+                this.generateList()
             ]
         );
     }
 }
 
-class ItemList {
-    constructor(items) {
-        this.items = items;
-    }
-    generateNode () {
-        return h(
-            'ul',
-            { className: 'item-list' },
-            items.map(item => item.generateNode())
-        );
-    }
-    add(e) {
-        // don't reload the page
-        e.preventDefault();
-        let content = e.target.querySelector('.input-field').value;
-        if(!content) return;
-        items.push(new Item(content, items.length));
-        update(new ListMaker(items));
-    }
-}
 
 class Item {
     constructor(content, index){
@@ -98,7 +93,7 @@ class Item {
     toggleComplete(){
         this.complete = !this.complete;
         this.complete ? this.classes.push('complete') : this.classes.pop();
-        update(new ListMaker(items));
+        update(listMaker);
     }
     generateNode(){
         return h(
@@ -120,10 +115,12 @@ let items,
     tree,
     rootNode;
 
+let listMaker
+
 (function intialize() {
     items = [];
 
-    let listMaker = new ListMaker(items);
+    listMaker = new ListMaker();
     let app = new App(listMaker);
 
     tree = app.generateNode();
