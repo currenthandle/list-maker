@@ -3,17 +3,23 @@ import { h } from 'virtual-dom';
 class App {
     constructor(location){
        this.location = location; 
-       this.generateNode = this.generateNode.bind(this);
+       //this.generateNode = this.generateNode.bind(this);
+       this.update = this.update.bind(this);
+    }
+    update(location) {
+        this.location = location;
+        console.log('update in location', location)
+        update(); 
     }
     generateNav() {
         return h(
             'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => update(new Dev()) }, 'Dev'),
-                h('button', { onclick: (e) => update(new Info()) }, 'Info'),
-                h('button', { onclick: (e) => update(listMaker) }, 'App'),
-                h('button', { onclick: (e) => update(new Resources()) },'Resources'),
+                h('button', { onclick: (e) => this.update(new Dev()) }, 'Dev'),
+                h('button', { onclick: (e) => this.update(new Info()) }, 'Info'),
+                h('button', { onclick: (e) => this.update(listMaker) }, 'App'),
+                h('button', { onclick: (e) => this.update(new Resources()) },'Resources'),
             ]
         );
     }
@@ -124,7 +130,7 @@ let app,
 (function intialize() {
 
     listMaker = new ListMaker();
-    let app = new App(listMaker);
+    app = new App(listMaker);
 
     tree = app.generateNode();
     //tree = listMaker.generateNode();
@@ -133,13 +139,11 @@ let app,
     document.querySelector('.content').appendChild(rootNode);
 })()
 
-function update (location) {
-    console.log('location from update', location)
-    //let listMaker = new ListMaker(items);
-    app = new App(location);
+function update () {
 
-    let newTree = app.generateNode(),
-        patches = diff(tree, newTree);
+    let newTree = app.generateNode()
+    console.log('newTree', newTree)
+    let  patches = diff(tree, newTree);
 
     rootNode = patch(rootNode, patches);
     tree = newTree;
