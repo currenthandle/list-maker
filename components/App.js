@@ -24,9 +24,9 @@ module.exports = class App {
         return h( 'div',
             { className: 'nav' },
             [
-                h('button', { onclick: (e) => this.changeView(this.dev) }, 'Dev'),
+                h('button', { onclick: (e) => this.changeView(this.dev) }, 'Say Hi'),
                 h('button', { onclick: (e) => this.changeView(this.info) }, 'Info'),
-                h('button', { onclick: (e) => this.changeView(this.listMaker) }, 'App'),
+                h('button', { onclick: (e) => this.changeView(this.listMaker) }, 'List Maker'),
                 h('button', { onclick: (e) => this.changeView(this.resources) },'Resources'),
             ]
         );
