@@ -9,25 +9,24 @@ module.exports = class ListMaker {
         this.remove = this.remove.bind(this);
         this.generateNode = this.generateNode.bind(this);
         this.update = update;
-        //this.index = 0;
+        this.nextKey = 0;
     }
     add(e) {
         // don't reload the page
         e.preventDefault();
         let content = e.target.querySelector('.input-field').value;
         if(!content) return;
-        this.items.push(new Item(content, this.items.length, this.update));
-        this.index++;
+        this.items.push(new Item(content, this.nextKey, this.update));
+        this.nextKey++;
         this.update();
     }
     remove(e) {
-        console.log('e.cT', e.target);
         if(e.target.classList.contains('fa')) {
             let liItem = e.target.parentNode;
-            let index = liItem.classList[1];
-            this.items.splice(index, 1);
-            console.log('items', this.items)
-            //this.index--;
+            let key = liItem.classList[1];
+            this.items.forEach((item, i) => {
+                if(key === String(item.classes[1])) this.items.splice(i, 1);
+            })
             this.update();
             
 
