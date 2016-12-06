@@ -32,6 +32,9 @@
             font-size: 1.4rem;
             //border-radius: .17rem;
             //box-shadow: none;
+            &:focus{
+                outline: none;
+            }
         }
         .add-btn {
             flex: 0 1 auto;
@@ -62,10 +65,10 @@
             box-shadow: 0 .07rem .07rem black;
             border-bottom-left-radius: .2rem;
             border-bottom-right-radius: .2rem;
-            padding: .217rem .1rem .21rem .6rem;
             &.complete{
                 .li-content{
                     text-decoration: line-through;
+                    text-decoration-color: red;
                 }
                 .fa {
                     display: block;
@@ -82,10 +85,16 @@
             .li-content {
                 flex: 0 1 auto; 
                 width: 100%;
+                padding: .217rem .1rem .21rem .6rem;
             }
             .fa {
+                margin-top: .06rem;
+                margin-right: .49rem;
                 flex: 0 1 auto; 
                 display: none;
+                color: red;
+                height: 25px;
+                font-size: 1.8rem;
                 
             }
         }
