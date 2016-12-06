@@ -64,10 +64,29 @@
             border-bottom-right-radius: .2rem;
             padding: .217rem .1rem .21rem .6rem;
             &.complete{
-                text-decoration: line-through;
+                .li-content{
+                    text-decoration: line-through;
+                }
+                .fa {
+                    display: block;
+                }
+            }
+            &.removed{
+                display: none;
             }
             &:nth-child(odd) {
                 background-color: rgba(204, 204, 204, .6);
+            }
+            display: flex;
+            justify-content: space-between;
+            .li-content {
+                flex: 0 1 auto; 
+                width: 100%;
+            }
+            .fa {
+                flex: 0 1 auto; 
+                display: none;
+                
             }
         }
     }
